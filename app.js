@@ -1,18 +1,30 @@
 
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const blogRoutes = require('./routes/api');
-
 const app = express();
-app.use(cors());
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const apiRouter = require("./routes/api");
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+dotenv.config();
+
+// Middleware
+app.use(express.json());
+app.use(cors({ origin: 'http://localhost:5173' })); // Adjust the origin to match your React app's URL
 app.use(bodyParser.json());
-app.use(blogRoutes);
+app.use(bodyParser.urlencoded({ extended: true }));
+connectDB();
 
-const port = 8080;
+app.use('/api/contacts',apiRouter)
 
 
-app.listen(port, () => {
-    console.log(`server is listening on ${port}`);
-})
+// Test Route
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 

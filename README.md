@@ -1,6 +1,17 @@
+# Contact Management System
+## Tools/Technologies to Use:
+### Frontend (React): Build the UI for listing and managing contacts.
+### Backend (Node.js + Express): Create RESTful API endpoints to connect with MongoDB. CRUD 
+### Database (MongoDB): Use MongoDB for storing contact information.
+### Mongoose: For defining schemas and interacting with the MongoDB database.
 
-# App Overview: Recipe Finder Application
 
-### Front end: Users will input ingredients, and the app will display recipes that match those ingredients. React will handle user inputs, API requests, and the display of recipe results.
+## Prerequisite : 
+npm install mongoose dotenv 
+npm install --save-dev nodemon
 
-### Back end: A Node.js server will store recipes in memory (a JavaScript array) and respond to requests based on the ingredients provided by the user.
+## Key Features:
+Create a Contact: Add a new contact with fields like name, email, phone number, etc.
+Read Contacts: Fetch and display the list of contacts from MongoDB.
+Update a Contact: Edit an existing contact's details.
+Delete a Contact: Remove a contact from the database.

@@ -1,9 +1,13 @@
 const express = require('express');
 const router= express.Router();
-const blogController = require("../controllers/blogController")
+const {createContact, getContact,updateContact, deleteContact} = require("../controllers/contactController");
 
-router.get('/blogs',blogController.getAllBlogs);
-router.post('/blogs', blogController.createBlog);
+
+router.post('/',createContact)
+router.get('/',getContact)
+router.put('/:id',updateContact)
+router.delete('/:id',deleteContact)
+
 
 module.exports = router;
 
